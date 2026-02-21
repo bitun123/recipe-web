@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-function Navbar() {
+function Navbar({openModal, closeModal}) {
   const navItem = [
     {
       name: "Home",
@@ -25,17 +25,17 @@ function Navbar() {
           <div>
             <NavLink
               to={item.path}
+              onClick={closeModal}
               className={(e) => (e.isActive ? "text-red-600" : "text-white")}
             >
               {item.name}
             </NavLink>
-
           </div>
         );
       })}
-                  <NavLink to={"/create-recipes"} className="text-xl font-medium py-2 px-4 bg-lime-900 rounded-4xl active:scale-95 cursor-pointer">
-create recipes
-            </NavLink>
+ <button
+ onClick={openModal}
+ className="text-xl font-medium py-2 px-4 bg-lime-900 rounded-4xl active:scale-95 cursor-pointer">Crete recipes</button>
     </div>
   );
 }
